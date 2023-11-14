@@ -3,11 +3,21 @@ import 'package:tarea_2_0/ListTileIconButton.dart';
 import 'package:tarea_2_0/custom_buttons.dart';
 import 'package:tarea_2_0/custom_list_tile.dart';
 
+class ContactArguments {
+  final String name;
+  final String telNumber;
+  final String email;
+
+  ContactArguments(this.name, this.telNumber, this.email);
+}
+
 class ContactDetail extends StatelessWidget {
   const ContactDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final parameters =
+        ModalRoute.of(context)!.settings.arguments as ContactArguments;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -18,12 +28,12 @@ class ContactDetail extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 50,
-                backgroundColor: Color(0xffdc3c6c),
+                backgroundColor: const Color(0xffdc3c6c),
                 child: Text(
-                  'P',
-                  style: TextStyle(
+                  parameters.name[0],
+                  style: const TextStyle(
                     fontSize: 60,
                     color: Colors.white,
                   ),
