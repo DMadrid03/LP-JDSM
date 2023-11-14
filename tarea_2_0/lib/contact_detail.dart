@@ -7,8 +7,9 @@ class ContactArguments {
   final String name;
   final String telNumber;
   final String email;
+  Color color = const Color(0xffdc3c6c);
 
-  ContactArguments(this.name, this.telNumber, this.email);
+  ContactArguments(this.name, this.telNumber, this.email, this.color);
 }
 
 class ContactDetail extends StatelessWidget {
@@ -30,7 +31,7 @@ class ContactDetail extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 50,
-                backgroundColor: const Color(0xffdc3c6c),
+                backgroundColor: parameters.color,
                 child: Text(
                   parameters.name[0],
                   style: const TextStyle(
@@ -42,9 +43,9 @@ class ContactDetail extends StatelessWidget {
               const SizedBox(
                 height: 45,
               ),
-              const Text(
-                'Pascualillo',
-                style: TextStyle(
+              Text(
+                parameters.name,
+                style: const TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 30,
                 ),
@@ -102,22 +103,22 @@ class ContactDetail extends StatelessWidget {
                             maxWidth:
                                 150.0, // Establece el ancho máximo deseado
                           ),
-                          child: const Column(
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '+504 9902-9311',
-                                    style: TextStyle(
+                                    parameters.telNumber,
+                                    style: const TextStyle(
                                         fontSize: 16.5,
                                         color: Color.fromARGB(255, 36, 35, 37),
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ],
                               ),
-                              Row(
+                              const Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
@@ -149,22 +150,22 @@ class ContactDetail extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const CustomListTile(
-                          text: 'Enviar mensaje a +504 9902-9311'),
-                      const CustomListTile(text: 'Llamar a +504 9902-9311'),
-                      const CustomListTile(
-                        text: 'Videollamar a +504 9902-9311',
+                      CustomListTile(
+                          text: 'Enviar mensaje a ${parameters.telNumber}'),
+                      CustomListTile(text: 'Llamar a ${parameters.telNumber}'),
+                      CustomListTile(
+                        text: 'Videollamar a ${parameters.telNumber}',
                       ),
-                      const CustomListTile(
-                        text: 'Mensaje a +50499029311',
+                      CustomListTile(
+                        text: 'Mensaje a ${parameters.telNumber}',
                         telegram: true,
                       ),
-                      const CustomListTile(
-                        text: 'Llamada de voz al +50499029311',
+                      CustomListTile(
+                        text: 'Llamada de voz al ${parameters.telNumber}',
                         telegram: true,
                       ),
-                      const CustomListTile(
-                        text: 'Videollamada al +50499029311',
+                      CustomListTile(
+                        text: 'Videollamada al ${parameters.telNumber}',
                         telegram: true,
                       ),
                     ], //children (column card)

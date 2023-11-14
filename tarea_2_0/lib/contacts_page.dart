@@ -179,7 +179,11 @@ class ContactsPage extends StatelessWidget {
     {"Nombre": "ENEE", "Teléfono": "118", "Correo": "enee@gmail.com"},
     {"Nombre": "FITT", "Teléfono": "137", "Correo": "fitt@gmail.com"},
     {"Nombre": "FFAA", "Teléfono": "138", "Correo": "ffaa@gmail.com"},
-    {"Nombre": "Fabri Figueroa", "Correo": "fabrifigueroa@gmail.com"},
+    {
+      "Nombre": "Fabri Figueroa",
+      "Teléfono": "99686454",
+      "Correo": "fabrifigueroa@gmail.com"
+    },
     {
       "Nombre": "Guillermo Navarrete Madrid",
       "Teléfono": "3380-8769",
@@ -242,7 +246,8 @@ class ContactsPage extends StatelessWidget {
                       arguments: ContactArguments(
                           '${contactos[index]['Nombre']}',
                           '${contactos[index]['Teléfono']}',
-                          '${contactos[index]['Correo']}'));
+                          '${contactos[index]['Correo']}',
+                          colores[indColor]));
                 },
               );
             }
