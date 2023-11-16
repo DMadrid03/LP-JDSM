@@ -6,7 +6,7 @@ import 'package:tarea_2_0/contact_detail.dart';
 class ContactsPage extends StatelessWidget {
   ContactsPage({super.key});
 
-  List<Map<String, dynamic>> contactos = [
+  static List<Map<String, dynamic>> contactos = [
     {
       "Nombre": "Adán Sabillon",
       "Teléfono": "9933-5309",
@@ -197,8 +197,14 @@ class ContactsPage extends StatelessWidget {
     const Color(0xff23bed5),
     const Color(0xffef2767)
   ];
+
   @override
   Widget build(BuildContext context) {
+    /* contactos.add({
+      'Nombre': newCont.name,
+      'Teléfono': newCont.telNumber,
+      'Correo': newCont.email,
+    });*/
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -220,6 +226,7 @@ class ContactsPage extends StatelessWidget {
                 onTap: () {
                   // Lógica cuando se hace clic en "Crear contacto nuevo"
                   print('Crear contacto nuevo');
+                  Navigator.of(context).pushNamed("/ncontact");
                 },
               );
             } else {

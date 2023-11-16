@@ -135,8 +135,7 @@ class ContactDetail extends StatelessWidget {
                           ),
                         ),
                         trailing: const SizedBox(
-                          width:
-                              96.0, // Establece el ancho máximo para el contenido de trailing
+                          width: 96.0,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
