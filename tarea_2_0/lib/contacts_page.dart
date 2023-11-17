@@ -200,11 +200,6 @@ class ContactsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /* contactos.add({
-      'Nombre': newCont.name,
-      'Teléfono': newCont.telNumber,
-      'Correo': newCont.email,
-    });*/
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -225,14 +220,14 @@ class ContactsPage extends StatelessWidget {
                 ),
                 onTap: () {
                   // Lógica cuando se hace clic en "Crear contacto nuevo"
-                  print('Crear contacto nuevo');
+                  // print('Crear contacto nuevo');
                   Navigator.of(context).pushNamed("/ncontact");
                 },
               );
             } else {
+              // Resto de elementos de la lista
               //color aleatorio de la lista
               int indColor = Random().nextInt(4);
-              // Resto de elementos de la lista
               index--;
               return ListTile(
                 title: Text(
@@ -242,13 +237,13 @@ class ContactsPage extends StatelessWidget {
                 leading: CircleAvatar(
                   backgroundColor: colores[indColor],
                   child: Text(
-                    contactos[index]['Nombre'][0], //numero aleatorio
+                    contactos[index]['Nombre'][0],
                     style: const TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),
                 onTap: () {
                   // Lógica cuando se hace clic en otros elementos de la lista
-                  print('Contacto seleccionado: ${contactos[index]['Nombre']}');
+                  //print('Contacto seleccionado: ${contactos[index]['Nombre']}');
                   Navigator.pushNamed(context, '/contact_d',
                       arguments: ContactArguments(
                           '${contactos[index]['Nombre']}',
@@ -261,6 +256,14 @@ class ContactsPage extends StatelessWidget {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: const Color(0xff216286),
+          child: const Icon(
+            Icons.dialpad,
+            size: 27,
+            color: Colors.white,
+          )),
     );
   }
 }
